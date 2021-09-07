@@ -67,6 +67,11 @@ public function store(Request $request)
 
     // $request->image->move(public_path('/chnlsgasplant/images/product'), $imageName);
 
+    // $destinationPath = 'chnlsgasplant/images/product';
+
+    // Image::make($request->image->getRealPath())->resize(670, 600)->save("chnlsgasplant/images/product/" . $imageName);
+
+
     Image::make($request->image->getRealPath())->resize(670, 600)->save(public_path("/chnlsgasplant/images/product/" . $imageName));
 
     $product= new Product();
@@ -122,9 +127,14 @@ public function update(Request $request, Product $product)
     if($request->image != null){
         
         $file = public_path("/chnlsgasplant/images/product/$product->image");
+        
         unlink($file);
 
     $imageName = time().'.'.$request->image->extension();  
+
+    // $destinationPath = 'chnlsgasplant/images/product';
+
+    // Image::make($request->image->getRealPath())->resize(670, 600)->save("chnlsgasplant/images/product/" . $imageName);
 
     $request->image->move(public_path('/chnlsgasplant/images/product'), $imageName);
 

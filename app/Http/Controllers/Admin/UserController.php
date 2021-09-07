@@ -145,6 +145,7 @@ public function update(Request $request, $id)
     // Check for old profile picture and delete it from location
     if($user->image !== null){
     $file = public_path("/chnlsgasplant/images/user/$user->image"); 
+    // $file = "chnlsgasplant/images/user/$user->image"; 
     unlink($file);
     }
 
@@ -154,6 +155,7 @@ public function update(Request $request, $id)
     $profileImage = Str::slug($request['name'], '-'). '.' . $request->image->getClientOriginalExtension();
 
     $destinationPath = public_path('/chnlsgasplant/images/user');
+    // $destinationPath = 'chnlsgasplant/images/user';
 
     $resizeImage = Image::make($request->image->getRealPath());
 

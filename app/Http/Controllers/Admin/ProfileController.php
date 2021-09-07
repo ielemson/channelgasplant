@@ -106,6 +106,7 @@ class ProfileController extends Controller
                 // Check for old profile picture and delete it from location
                 if($user->image !== null){
                     $file = public_path("/chnlsgasplant/images/user/$user->image"); 
+                    // $file = "chnlsgasplant/images/user/$user->image"; 
                     unlink($file);
                 }
                 //CHECK IF USER IMAGE INOUT IS NOT NULL AND UPLOAD IMAGE
@@ -115,6 +116,7 @@ class ProfileController extends Controller
                 $profileImage = Str::slug($request['name'], '-'). '.' . $request->image->getClientOriginalExtension();
 
                 $destinationPath = public_path('/chnlsgasplant/images/user');
+                // $destinationPath = 'chnlsgasplant/images/user';
     
                 $resizeImage = Image::make($request->image->getRealPath());
     

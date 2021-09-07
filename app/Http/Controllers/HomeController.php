@@ -104,6 +104,7 @@ class HomeController extends Controller
             $profileImage = Str::slug($request['name'], '-'). '.' . $request->image->getClientOriginalExtension();
 
             $destinationPath = public_path('/chnlsgasplant/images/user');
+            // $destinationPath = 'chnlsgasplant/images/user';
 
             $resizeImage = Image::make($request->image->getRealPath());
 
