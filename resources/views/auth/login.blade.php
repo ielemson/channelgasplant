@@ -1,97 +1,103 @@
-@extends('layouts.customerLayout',['title'=>'Channels Gas Plant | Login'])
+@extends('layouts.app',['title'=>'Channels Gas Plant | Login'])
+
+
+<!--====== INCLUDE HEADER PART STARTS======-->
+@section('header')
+    @include('partials.headerPart')
+@endsection
+<!--====== INCLUDE HEADER PART ENDS======-->
+
+<!--====== INCLUDE BANNER PART STARTS======-->
+@section('slider')
+    @include('partials.pageBanner',['bannerContent'=>'Login','bannerImg'=>'gas-banner.png'])
+@endsection
+<!--====== INCLUDE BANNER PART ENDS======-->
 
 
 @section('content')
-<div class="container-fluid page-body-wrapper full-page-wrapper">
-    <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
-      <div class="row flex-grow">
-        <div class="col-lg-6 d-flex align-items-center justify-content-center">
-          <div class="auth-form-transparent text-left p-3">
-            <div class="brand-logo">
-              <img src="{{ asset('chnlsgasplant/images/logo.png') }}" alt="logo">
+
+<!--====== LOGIN FORM STARTS ======-->
+<div id="login-part" class="pb-80">
+<div class="container">
+    <div class="row no-gutters justify-content-center">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+
+            
+
+            {{-- INCLUDE USER ALERT MESSAGE --}}
+            {{-- @include('partials._alerts') --}}
+            {{-- INCLUDE USER ALERT MESSAGE --}}
+
+            <div class="login-form text-center mt-5">
+            
+                <div class="logo mb-50">
+                    {{-- <a href="#"><img src="{{ asset('/chnlsgasplant/images/logo.png') }}" alt="Logo"></a> --}}
+                    <p class="d-inline-block font-weight-bold">
+                        To login, simply enter your details below and click "Login".
+                        If you are not registered simply click the "Register" button.
+                    </p>
+                    
+                </div>
+
+            {{-- INCLUDE USER ALERT MESSAGE --}}
+            @include('partials._alerts')
+            {{-- INCLUDE USER ALERT MESSAGE --}}
+
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <div class="form-group">
+                    
+                    <div class="input-group mb-3">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                        placeholder="Email">
+
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                      </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                        <input id="password" type="password"
+                            class="form-control @error('password') is-invalid @enderror" name="password" required
+                            autocomplete="current-password" placeholder="Password">
+
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-success ">Login</button>
+                        &nbsp;
+                        <a href="{{route('register')}}"  class="btn btn-primary">Register</a>
+                    </div>
+                    <div class="singel-form pt-25">
+                        <ul class="remember">
+                            <li>
+                                <input type="checkbox" name="checkbox" id="checkbox"
+                                    {{ old('remember') ? 'checked' : '' }}>
+                                <label for="checkbox"><span></span>Remember Me</label>
+                            </li>
+                            <li>
+                                <p>Forgot <a href="{{ route('password.request') }}">password?</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
             </div>
-            <h4>Welcome back!</h4>
-            <h6 class="font-weight-light">Happy to see you again!</h6>
-            <form class="pt-3" method="POST" action="{{ route('login') }}">
-                @csrf
-              <div class="form-group">
-                <label for="exampleInputEmail">Email</label>
-                <div class="input-group">
-                  <div class="input-group-prepend bg-transparent">
-                    <span class="input-group-text bg-transparent border-right-0">
-                      <i class="mdi mdi-account-outline text-primary"></i>
-                    </span>
-                  </div>
-                  <input type="email" class="form-control @error('email') is-invalid @enderror form-control-lg border-left-0"  placeholder="Email" value="{{ old('email') }}" name="email" required>
-                  @error('email')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-                </div>
-               
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword">Password</label>
-                <div class="input-group">
-                  <div class="input-group-prepend bg-transparent">
-                    <span class="input-group-text bg-transparent border-right-0">
-                      <i class="mdi mdi-lock-outline text-primary"></i>
-                    </span>
-                  </div>
-                  <input type="password" class="form-control @error('password') is-invalid @enderror  form-control-lg border-left-0" placeholder="Password" name="password" required>     
-                  @error('password')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror                   
-                </div>
-
-              </div>
-              <div class="my-2 d-flex justify-content-between align-items-center">
-                <div class="form-check">
-                  <label class="form-check-label text-muted">
-                    <input type="checkbox" class="form-check-input" {{ old('remember') ? 'checked' : '' }} name="checkbox">
-                    Keep me signed in
-                  </label>
-                </div>
-                <a href="{{ route('password.request') }}" class="auth-link text-black">Forgot password?</a>
-              </div>
-              <div class="my-3">
-                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">LOGIN</button>
-              </div>
-              <div class="mb-2 d-flex">
-                <button type="button" class="btn btn-facebook auth-form-btn flex-grow mr-1" id="home">
-                  <i class="mdi mdi-home mr-2"></i>
-                  Go Back
-                </button>
-                <button type="button" class="btn btn-twitter auth-form-btn flex-grow ml-1" id="register">
-                  <i class="mdi mdi-key mr-2"></i>Register
-                </button>
-              </div>
-              {{-- <div class="text-center mt-4 font-weight-light">
-                Don't have an account? <a href="{{route('register')}}" class="text-primary">Create</a>
-              </div> --}}
-            </form>
-          </div>
         </div>
-        <div class="col-lg-6 login-half-bg d-flex flex-row">
-          <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; {{Date('Y')}} All rights reserved.</p>
-        </div>
-      </div>
     </div>
-    <!-- content-wrapper ends -->
-  </div>
+</div>
+</div>
 
-  @section('scripts')
+<!--====== LOGIN FORM ENDS ======-->
 
-  <script>
-    $("#home").click(function(){
-   location.href="/"
-});
-    $("#register").click(function(){
-   location.href="/register"
-});
-  </script>
-  @endsection
 @endsection

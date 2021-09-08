@@ -51,6 +51,10 @@ img {
     max-width: 100%;
 }
 
+.navbar-brand img{
+    /* border: 2px solid red; */
+    max-width:85%;
+}
 a:focus,
 input:focus,
 textarea:focus,
@@ -1795,8 +1799,8 @@ p {
         12.BRAND css 
 ===========================*/
 
-#brand-part {
-}
+/* #brand-part {
+} */
 .singel-brand {
     opacity: 0.5;
 }
@@ -2122,21 +2126,21 @@ p {
    19.LOGIN & REGISTER css 
 ===========================*/
 
-#login-part {
-}
+/* #login-part {
+} */
 
 .login-form {
     padding: 50px;
-    -webkit-box-shadow: 0px 0px 0px 10px rgba(232, 244, 252, 1);
-    box-shadow: 0px 0px 0px 10px rgba(232, 244, 252, 1);
+    -webkit-box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.72); 
+    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.72);
     border: 1px solid #dae6f3;
     border-radius: 5px;
 }
-.login-form .logo {
+/* .login-form .logo {
 }
 
 .login-form .singel-form {
-}
+} */
 
 .login-form .singel-form > input {
     width: 100%;
