@@ -64,4 +64,20 @@ protected $redirectTo = '/home';
             return $user;
 
     }
+
+
+    public function showRegisterForm()
+    {
+        // Get URLs
+        $urlPrevious = url()->previous();
+        $urlBase = url()->to('/');
+    
+        // Set the previous url that we came from to redirect to after successful login but only if is internal
+        if(($urlPrevious != $urlBase . '/register') && (substr($urlPrevious, 0, strlen($urlBase)) === $urlBase)) {
+            session()->put('url.intended', $urlPrevious);
+        }
+    
+        return view('auth.login');
+    
+    }
 }

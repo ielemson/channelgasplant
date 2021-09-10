@@ -39,9 +39,7 @@
                     
                 </div>
 
-            {{-- INCLUDE USER ALERT MESSAGE --}}
-            @include('partials._alerts')
-            {{-- INCLUDE USER ALERT MESSAGE --}}
+            
 
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
