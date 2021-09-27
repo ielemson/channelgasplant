@@ -34,19 +34,7 @@
 @section('content')
 
     <!--====== PAGE BANNER PART ENDS ======-->
-    <!--====== MAP PART START ======-->
-
-    <div class="map-part pt-75">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 map-responsive">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.0200765492427!2d3.3756784148499785!3d6.644428323588854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9382f9f19617%3A0x3cfa44172d6bb87d!2sChannel%20Gas%20Plant!5e0!3m2!1sen!2sng!4v1615687252172!5m2!1sen!2sng" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--====== MAP PART ENDS ======-->
+ 
 
     <!--====== CONACT PART START ======-->
 
@@ -146,6 +134,20 @@
         </div>
     </section>
 
+
+       <!--====== MAP PART START ======-->
+
+       <div class="map-part pt-75">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 map-responsive">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.0200765492427!2d3.3756784148499785!3d6.644428323588854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9382f9f19617%3A0x3cfa44172d6bb87d!2sChannel%20Gas%20Plant!5e0!3m2!1sen!2sng!4v1615687252172!5m2!1sen!2sng" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--====== MAP PART ENDS ======-->
 
     <!--====== CONACT PART ENDS ======-->
 
