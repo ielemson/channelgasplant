@@ -48,15 +48,16 @@ class HomeController extends Controller
                  ])->get();
      
                  // QUERY USER TICKET
-                 $tickets = Ticket::where('user_id',\Auth::user()->id)->get();
+                 $tickets = Ticket::where('user_id',\Auth::user()->id)->paginate(3);
+                 $ticketCount = Ticket::where('user_id',\Auth::user()->id)->count();
                  
-            return view('customer.dashboard',compact('orders','tickets'));
+            return view('customer.dashboard',compact('orders','tickets','ticketCount'));
     }
 
     //RETURN CREATE TICKET PAGE
     public function createTicket(){
 
-            return view('customer.createTicket');
+            return view('customer.ticket.create');
         }
 
         //RETURN PROFILE PAGE
@@ -93,13 +94,19 @@ class HomeController extends Controller
            $user = User::find($request->id);
 
            // Check for old profile picture and delete it from location
-           if($user->image !== null){
-            $file = public_path("/chnlsgasplant/images/user/$user->image"); 
-            unlink($file);
-        }
+        //    if($user->image !== null){
+        //     $file = public_path("/chnlsgasplant/images/user/$user->image"); 
+        //     unlink($file);
+        // }
 
         if($request->image != null){
 
+            
+           $user = User::find($request->id);
+
+           // Check for old profile picture and delete it from location
+            $file = public_path("/chnlsgasplant/images/user/$user->image"); 
+            unlink($file);
 
             $profileImage = Str::slug($request['name'], '-'). '.' . $request->image->getClientOriginalExtension();
 

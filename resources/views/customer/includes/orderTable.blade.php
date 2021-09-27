@@ -1,6 +1,6 @@
 <div class="table-responsive">
     @if ($orders->isNotEmpty())
-        <table class="table">
+        <table class="table" id="order-listing">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -10,6 +10,7 @@
                     <th scope="col">Unit Price</th>
                     <th scope="col">Total Price</th>
                     <th scope="col">Order Date</th>
+                    <th scope="col">Invoices</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +34,13 @@
                        
                         <td>
                             {{ \Carbon\Carbon::parse($order->created_at)->toFormattedDateString() }}
+                        </td>
+                        <td>
+                            @if ($order->status)
+                          <a href="{{route('order-invoice',['id' => $order->id])}}" class="btn btn-sm btn-info" >view</a>
+                        @else
+                            <span class="badge badge-warning">{{ 'pending' }}</span>
+                        @endif
                         </td>
                     </tr>
                 @endforeach

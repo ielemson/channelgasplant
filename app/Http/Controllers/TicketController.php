@@ -86,6 +86,7 @@ public function store(Request $request)
     $ticket->message = request('message');
 
     if($ticket->save()){
+        
     return  redirect()->back()->with('success','Ticket Created Successfully');
     }
 

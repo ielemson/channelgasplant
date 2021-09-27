@@ -49,6 +49,7 @@
                               <a class="btn btn-info btn-sm" href="{{ route('admin.users.show',$user->id) }}">Show</a>
                               <a class="btn btn-primary btn-sm" href="{{ route('admin.users.edit',$user->id) }}">Edit</a>
                              
+                              
                                <form  action="{{ route("admin.users.destroy",$user->id) }}"
                                                    method="POST">
                                                   @csrf

@@ -1,46 +1,33 @@
-<div class="col-md-4 mb-3">
-    <div class="card">
-      <div class="card-body">
-        <div class="d-flex flex-column align-items-center text-center">
-          
-          @if (Auth::user()->image != null)
-          <img src="/chnlsgasplant/images/user/{{Auth::user()->image}}" alt="{{Auth::user()->name}}" class="rounded-circle" width="150">
-          @else
-          <img src="{{asset('chnlsgasplant/images/user/avatar.png')}}" alt="{{Auth::user()->name}}" class="rounded-circle" width="150"> 
-          @endif
-
-          <div class="mt-3">
-            <h4>Customer</h4>
-            {{-- <p class="text-secondary mb-1">Customer</p> --}}
-            <a href="#" class="btn btn-danger"  onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> Logout</a>
-
-
-            <a href="{{route('setting')}}" class="btn btn-info"  ><i class="fa fa-cog"></i> Settings</a>
-            {{-- LOGOUT FORM --}}
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-             @csrf
-             </form>
-            {{-- LOGOUT FORM --}}
-        
+<div class="col-md-4 col-sm-12 grid-margin stretch-card">
+  <div class="card text-center">
+    <div class="card-body">
+      @if (Auth::user()->image != null)
+      <img src="/chnlsgasplant/images/user/{{Auth::user()->image}}" alt="{{Auth::user()->name}}" class="img-lg rounded-circle mb-2"> 
+      @else
+      <img src="{{asset('chnlsgasplant/images/user/avatar.png')}}" alt="{{Auth::user()->name}}" class="img-lg rounded-circle mb-2"> 
+      @endif
+      <h4 >{{Auth::user()->name}}</h4>
+      <p class="text-muted">Customer</p>
+      <p class="mt-4 card-text">
+         {{Auth::user()->address}}
+      </p>
+      <a href="{{route('profilePage')}}" class="btn btn-warning btn-sm mt-3 mb-4">Verify Account</a>
+      <div class="border-top pt-3">
+        <div class="row">
+          <div class="col-4">
+            <h6>city</h6>
+            <p>{{Auth::user()->city}}</p>
+          </div>
+          <div class="col-4">
+            <h6>country</h6>
+            <p>{{Auth::user()->country}}</p>
+          </div>
+          <div class="col-4">
+            <h6>phone</h6>
+            <p>{{Auth::user()->phone}}</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="card mt-3">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-          <h5 class="mb-0"> <i class="fa fa-user "></i> Profile</h5>
-          <a href="{{route('profilePage')}}" class="btn btn-primary btn-sm">Update Profile</a>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-          <h5 class="mb-0"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Orders</h5>
-          <a href="{{route('customerOrders')}}" class="btn btn-info btn-sm">View Orders</a>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-          <h5 class="mb-0"><i class="fa fa-comments" aria-hidden="true"></i> Complaints </h5>
-          <a href="{{route('createTicket')}}" class="btn btn-warning btn-sm"> Create Ticket</a>
-        </li>
-      </ul>
-    </div>
   </div>
+</div>

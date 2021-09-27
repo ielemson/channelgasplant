@@ -32,6 +32,7 @@ public function index(Request $request)
 }
 
 
+
 //GET FUNCTION TO CREATE NEW USERS BY ADMIN
 public function create()
 {

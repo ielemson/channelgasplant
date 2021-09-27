@@ -28,7 +28,7 @@
                                 <div class="row">
                                     @foreach ($products as $product)
                                         {{-- INCLUDE PRODUCT CARD --}}
-                                        @include('includes.productsCard')
+                                        @include('products.productsCard')
                                         {{-- INCLUDE PRODUCT CARD --}}
                                     @endforeach
                                 </div>

@@ -73,7 +73,9 @@ Route::group(['prefix'=>'home','middleware' => ['auth']], function() {
     Route::patch('profile/setting/{id}', 'HomeController@postSetting')->name('postsetting');
     Route::get('create-ticket', 'HomeController@createTicket')->name('createTicket');
     Route::get('orders', 'OrderControllerController@index')->name('customerOrders');
+    Route::get('invoice/{id}','InvoiceController@index')->name('order-invoice');
     Route::resource('ticket','TicketController',['except'=>['destory','create','show']]);
+
 });
 
 

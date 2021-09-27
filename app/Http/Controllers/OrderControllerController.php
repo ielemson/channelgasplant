@@ -15,7 +15,7 @@ class OrderControllerController extends Controller
     {
         //GET ALL ORDERS FOR THIS USER
         $orders =  Order::where('user_id', '=', \Auth::user()->id)->get();
-        return view('customer.orders',compact('orders'));
+        return view('customer.order.index',compact('orders'));
     }
 
    

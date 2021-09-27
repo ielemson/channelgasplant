@@ -19,7 +19,7 @@
         <div class="main-body mt-5">
 
             <!-- Breadcrumb -->
-            @include('partials.breadCrumb',['page'=>'Check out'])
+            {{-- @include('partials.breadCrumb',['page'=>'Check out']) --}}
             <!-- /Breadcrumb -->
 
             {{-- COMPLETE CHECKOUT FORM --}}

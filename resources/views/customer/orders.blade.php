@@ -1,39 +1,42 @@
-@extends('layouts.app',['title'=>'Channels Gas Plant | Order'])
+@extends('layouts.customerLayout',['title'=>'Channels Gas Plant | Order'])
 
-
-<!--====== INCLUDE HEADER PART STARTS======-->
-@section('header')
-    @include('partials.headerPart')
-@endsection
-<!--====== INCLUDE HEADER PART ENDS======-->
-
-<!--====== INCLUDE BANNER PART STARTS======-->
-@section('slider')
-    @include('partials.pageBanner',['bannerContent'=>'Orders','bannerImg'=>'page-banner.jpg'])
-@endsection
-<!--====== INCLUDE BANNER PART ENDS======-->
 
 
 
 @section('content')
 
-    <!--====== DASHBOARD STARTS HERE ======-->
-    <div class="container">
-        <div class="main-body mt-5 mb-5">
 
-            <!-- Breadcrumb -->
-            @include('partials.breadCrumb',['page'=>'Order'])
-            <!-- /Breadcrumb -->
-
+    <!--====== DASHBOARD ENDS HERE ======-->
+  
+    <div class="container-fluid page-body-wrapper">
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="container">
+              <div class="row">
+        
+    
+                <div class="col-md-12 grid-margin ">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">orders</h4>
+                  
              {{-- INCLUDE ORDER TABLE --}}
             @include('customer.includes.orderTable')
             {{-- INCLUDE ORDER TABLE --}}
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                @include('customer.includes.footer')
+                <!-- partial -->
         </div>
     </div>
-
-    <!--====== DASHBOARD ENDS HERE ======-->
-    </div>
-
+    
 @endsection
 
 
