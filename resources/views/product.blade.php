@@ -40,7 +40,7 @@
                             <p class="about">{!!$product->description!!}</p>
                             <div class="sizes mt-2">
                                 <h6 class="text-uppercase">Size</h6> 
-                                <label class="radio"> <input type="radio" name="size" value="S" checked> <span>{{$product->size}}</span></label>
+                                <label class="radio"> <input type="radio" name="size" value="S" checked> <span>{{$product->size}} KG</span></label>
                                 
                             </div>
                             <div class="cart mt-4 align-items-center btn-group">

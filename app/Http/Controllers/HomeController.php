@@ -105,12 +105,12 @@ class HomeController extends Controller
            $user = User::find($request->id);
 
            // Check for old profile picture and delete it from location
-            $file = public_path("/chnlsgasplant/images/user/$user->image"); 
+            $file = public_path("chnlsgasplant/images/user/$user->image"); 
             unlink($file);
 
             $profileImage = Str::slug($request['name'], '-'). '.' . $request->image->getClientOriginalExtension();
 
-            $destinationPath = public_path('/chnlsgasplant/images/user');
+            $destinationPath = public_path('chnlsgasplant/images/user');
             // $destinationPath = 'chnlsgasplant/images/user';
 
             $resizeImage = Image::make($request->image->getRealPath());
